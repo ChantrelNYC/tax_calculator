@@ -1,0 +1,33 @@
+name: Cart Logic Checker
+
+# UPDATED: Triggers on Pushes to main AND Pull Requests targeting main
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate-math:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Run Tests
+        id: run_tests
+        # Just runs the standard python unittest command
+        run: python -m unittest discover tests
+
+      # This step only runs if the tests failed
+      - name: Hint for Students
+        if: failure()
+        run: |
+          echo "::error::❌ Calculations Incorrect!"
+          echo "::notice::💡 HINT 1: Check 'apply_discount'. Are you calculating a percentage, or just subtracting a raw number?"
+          echo "::notice::💡 HINT 2: Check 'calculate_tax'. It looks like it's returning zero."
