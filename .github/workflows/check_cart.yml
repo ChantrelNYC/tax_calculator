@@ -30,4 +30,5 @@ jobs:
         run: |
           echo "::error::❌ Calculations Incorrect!"
           echo "::notice::💡 HINT 1: Check 'apply_discount'. Are you calculating a percentage, or just subtracting a raw number?"
-          echo "::notice::💡 HINT 2: Check 'calculate_tax'. It looks like it's returning zero."
+          echo "::notice::💡 HINT 2: Check 'calculate_tax'. It looks like it's returning zero." 
+          
