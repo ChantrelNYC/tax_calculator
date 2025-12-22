@@ -7,6 +7,7 @@ def apply_discount(price, discount_percentage):
         raise ValueError("Discount must be between 0 and 100")
     
     # Correct Logic: price * (percentage / 100) gives the amount to subtract
+
     final_price = price - (price * (discount_percentage / 100))
     
     return max(0.0, final_price)

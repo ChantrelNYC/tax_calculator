@@ -11,7 +11,7 @@
 3.  **Run Tests Locally:** `python -m unittest discover tests`
     - _Observation:_ You will see `AssertionError: 30.0 != 40.0`. Read the error message carefully!
 4.  **Fix `src/cart.py`:**
-    - **Step A:** Change the `apply_discount` logic. It currently does `price - discount`. It _should_ calculate `price - (price * (discount / 100))`.
+    - **Step A:** Change the `apply_discount` logic. It currently does `price - discount_percentage`. It _should_ calculate `price - (price * (discount_percentage / 100))`.
     - **Step B:** Implement `calculate_tax` so it returns `subtotal * tax_rate`.
 5.  **Commit & Push:**
     ```bash
